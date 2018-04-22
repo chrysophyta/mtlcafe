@@ -15,18 +15,39 @@
     <div id="map"></div>
     <script>
         function initMap() {
-            var uluru = { lat: -25.363, lng: 131.044 };
+            var mtl = { lat: 45.5149548, lng: -73.583016 };
             var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 4,
-                center: uluru
+                zoom: 12,
+                center: mtl
             });
             var marker = new google.maps.Marker({
-                position: uluru,
+                position: mtl,
                 map: map
+            });
+            var request = {
+                location: mtl,
+                radius: '500',
+                types: ['cafe']
+            };
+
+            var service = new google.maps.places.PlacesService(map);
+            service.nearbySearch(request, function (results, status) {
+                if (status == google.maps.places.PlacesServiceStatus.OK) {
+                    for (var i = 0; i < results.length; i++) {
+                        var place = results[i];
+                        // If the request succeeds, draw the place location on
+                        // the map as a marker, and register an event to handle a
+                        // click on the marker.
+                        var marker = new google.maps.Marker({
+                            map: map,
+                            position: place.geometry.location
+                        });
+                    }
+                }
             });
         }
     </script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpy9YXHwwRsHs2T8SU9hLigW2q4GEnxzU&callback=initMap">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBpy9YXHwwRsHs2T8SU9hLigW2q4GEnxzU&libraries=places&callback=initMap">
     </script>
 </body>
 
