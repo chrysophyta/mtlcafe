@@ -1,9 +1,9 @@
 <?php
 function child_theme_enqueue_styles() {
 
-    $parent_style = 'twentySeventeen-style'; // This is 'twentySeventeen-style' for the Twenty Seventeen theme.
+    $parent_style = 'twentyseventeen-style'; // This is 'twentySeventeen-style' for the Twenty Seventeen theme.
 
-    wp_enqueue_style( $parent_style, get_template_directory_uri() . '../twentyseventeen/style.css' );
+    wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css' );
     wp_enqueue_style( 'child-style',
         get_stylesheet_directory_uri() . '/style.css',
         array( $parent_style ),
