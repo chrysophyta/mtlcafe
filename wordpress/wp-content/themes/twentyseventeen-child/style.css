@@ -11,3 +11,12 @@
  Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
  Text Domain:  twenty-Seventeen-child
 */
+
+.navigation-top {
+  top: 0;
+  height: 87.25px;
+}
+.custom-header {
+  margin-bottom: 0px !important;
+  margin-top: 87.25px;
+}
